@@ -24,11 +24,12 @@ describe('test/rabbot.test.js', () => {
     const rabbot = app.rabbot;
     // console.log(rabbot);
     rabbot.handle('MyMessage', (msg) => {
-      console.log('received msg', msg.body);
+      console.log('received msg', JSON.stringify(msg, null, 2));
       msg.ack();
     });
     
     rabbot.handle('MyRequest', (req) => {
+      console.log('received request', JSON.stringify(req, null, 2));
       req.reply('yes?');
     });
     await rabbot.request('ex.1', { type: 'MyRequest', body: 'wow' })

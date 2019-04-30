@@ -18,10 +18,10 @@ exports.rabbot = {
       replyQueue: 'customReplyQueue',
     },
     exchanges: [
-      { name: 'ex.1', type: 'fanout', autoDelete: false },
+      { name: 'ex.1', type: 'fanout', autoDelete: true },
     ],
     queues: [
-      { name: 'q.1', autoDelete: false, subscribe: true },
+      { name: 'q.1', autoDelete: true, subscribe: true },
     ],
     bindings: [
       { exchange: 'ex.1', target: 'q.1', keys: [] },
